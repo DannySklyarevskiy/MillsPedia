@@ -1,0 +1,43 @@
+*{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    margin: 50px;
+    padding: 0px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-color: #053f62;
+}
+form{
+    background: #fafafa;
+    width: 700px;
+    height: 580px;
+    padding-left: 75px 50px;
+}
+.tape {
+    position: absolute;
+    height: 220px;
+    width: 60px;
+    border: 1px solid black;
+    transform: rotate(45deg);
+    background: repeating-linear-gradient(
+        45deg,
+        wheat 0,
+        #fafafa 5px,
+        transparent 5px,
+        transparent 10px,
+        #053f62 10px,
+        #101010 15px
+    );
+}
+
+.tape-1{
+    bottom: 350px;
+    right: 335px;
+}
+
+.tape-2{
+    top: 350px;
+    left: 335px;
+}
