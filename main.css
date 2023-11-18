@@ -24,6 +24,7 @@ form{
     top: 0;
     right: 0;
     background-color: white; 
+    opacity: .5;
     overflow-x: hidden;
     padding-top: 20px;
   }
@@ -55,3 +56,9 @@ form{
 	top: -80px;; 
 	left:-80px; 
 } 
+
+p{
+    word-wrap:break-word;
+    width: 1300px;
+    font-size: 20px;
+}
