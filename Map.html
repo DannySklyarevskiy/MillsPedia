@@ -38,13 +38,13 @@
     marker1.bindPopup("<img class ='image' src='/doggers.jpg'><b>This is the oval!</b><br><a href='https://quarterly.mills.edu/the-gregarious-ghosts-of-mills/'>Cute dogs were buried here</a>").openPopup();
 
     //Popup setup
-    // var popup = L.popup();
-    // function onMapClick(e) {
-    // popup
-    //     .setLatLng(e.latlng)
-    //     .setContent(e.latlng.toString())
-    //     .openOn(map);
-    // }
-    // map.on('click', onMapClick);
+    var popup = L.popup();
+    function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent(e.latlng.toString())
+        .openOn(map);
+    }
+    map.on('click', onMapClick);
 
 </script>
