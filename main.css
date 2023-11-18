@@ -1,5 +1,5 @@
 *{
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 50px;
     padding: 0px;
     text-decoration: none;
@@ -7,7 +7,7 @@
 }
 body{
     min-height: 100vh;
-    background-color: #053f62;
+    background-color: #094a82;
 }
 form{
     background: #fafafa;
@@ -15,29 +15,43 @@ form{
     height: 580px;
     padding-left: 75px 50px;
 }
-.tape {
-    position: absolute;
-    height: 220px;
-    width: 60px;
-    border: 1px solid black;
-    transform: rotate(45deg);
-    background: repeating-linear-gradient(
-        45deg,
-        wheat 0,
-        #fafafa 5px,
-        transparent 5px,
-        transparent 10px,
-        #053f62 10px,
-        #101010 15px
-    );
+
+.sidenav { 
+    height: 85%;
+    width: 180px; 
+    position: fixed;
+    z-index: 1; 
+    top: 0;
+    right: 0;
+    background-color: white; 
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+.sidenav a {
+    padding: 0px 0px 0px 0px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #053f62;
+    display: block;
+ }
+  
+.sidenav a:hover {
+    color: wheat;
+ }
+
+ .main{
+    margin-right: 200px;
+    font-size: 15px;
+    padding: 0px 10px;
+ }
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
 
-.tape-1{
-    bottom: 350px;
-    right: 335px;
-}
-
-.tape-2{
-    top: 350px;
-    left: 335px;
-}
+#logo{ 
+	position:fixed; 
+	top: -80px;; 
+	left:-80px; 
+} 
