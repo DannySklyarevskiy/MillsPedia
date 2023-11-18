@@ -8,7 +8,7 @@
             width: 100%; 
             height: 100vh; }
         .image{
-            width: 300px;
+            width: 200px;
         }
     </style>
 </head>
@@ -20,6 +20,7 @@
 </body>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <script>
     //Setup of map
@@ -31,11 +32,33 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+
+    //Put picture over mills area
+    var errorOverlayUrl = 'https://cdn-icons-png.flaticon.com/512/110/110686.png';
+    var altText = 'Image of Newark, N.J. in 1922. Source: The University of Texas at Austin, UT Libraries Map Collection.';
+    var latLngBounds = L.latLngBounds([[40.799311, -74.118464], [40.68202047785919, -74.33]]);
+
+    var imageOverlay = L.imageOverlay('secrets/campus.png', latLngBounds, {
+    opacity: 0.8,
+    errorOverlayUrl: errorOverlayUrl,
+    alt: altText,
+    interactive: true
+}).addTo(map);
+
+    //Parse a csv file
+    // Papa.parse(document.getElementById('https://file.io/q7LH5JKhuRVi').files[0],{
+    //     download: true,
+    //     header: true,
+    //     complete: function(results) {
+    //         console.log(results.data);
+    //     }
+    // })
+
     //Marker setup
     var marker = L.marker([37.780508, -122.183204]).addTo(map);
     var marker1 = L.marker([37.779114, -122.18232]).addTo(map);
     marker.bindPopup("<b>Welcome to mills!</b><br>Test popup.").openPopup();
-    marker1.bindPopup("<img class ='image' src='/doggers.jpg'><b>This is the oval!</b><br><a href='https://quarterly.mills.edu/the-gregarious-ghosts-of-mills/'>Cute dogs were buried here</a>").openPopup();
+    marker1.bindPopup("<img class ='image' src='secrets/doggers.jpg'><br><b>This is the oval!</b><br><a href='https://quarterly.mills.edu/the-gregarious-ghosts-of-mills/'>Cute dogs were buried here</a>").openPopup();
 
     //Popup setup
     var popup = L.popup();
