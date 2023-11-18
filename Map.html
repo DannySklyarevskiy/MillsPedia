@@ -20,7 +20,6 @@
 </body>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <script>
     //Setup of map
@@ -36,30 +35,30 @@
     //Put picture over mills area
     var errorOverlayUrl = 'https://cdn-icons-png.flaticon.com/512/110/110686.png';
     var altText = 'Image of Newark, N.J. in 1922. Source: The University of Texas at Austin, UT Libraries Map Collection.';
-    var latLngBounds = L.latLngBounds([[40.799311, -74.118464], [40.68202047785919, -74.33]]);
+    var latLngBounds = L.latLngBounds([[37.784131, -122.188051], [37.775506, -122.175466]]);
 
     var imageOverlay = L.imageOverlay('secrets/campus.png', latLngBounds, {
-    opacity: 0.8,
+    opacity: 1,
     errorOverlayUrl: errorOverlayUrl,
     alt: altText,
     interactive: true
 }).addTo(map);
 
-    //Parse a csv file
-    // Papa.parse(document.getElementById('https://file.io/q7LH5JKhuRVi').files[0],{
-    //     download: true,
-    //     header: true,
-    //     complete: function(results) {
-    //         console.log(results.data);
-    //     }
-    // })
+    //Arrays of all info
+    var markers = [
+    ["Mills Hall", "Mills Hall is the oldest building on this campus and is named after Susan Mills. This building is currently used for administrative offices, classes, and residence for some faculty. The hall is home to a collection of tea kettles from all over the world that one of the former presidents used to collect", 37.779612, -122.182107],
+    ["Mary Atkins", "Mary Atkins is the student leadership building named after the original founder of Mills, Mary Atkins. SGA meetings have been held in Mary Atkins since the inception of the college", 37.781116, -122.180928],
+    ["El Campanil (Clock Tower)", "Designed by renowned architect Julia Morgans, this over 115-year-old clock tower oversees the college and informs the students of a new hour. Due to its innovative use of reinforced concrete, the clock tower had been the only building in Mills to survive the San Francisco earthquake", 37.778683, -122.182452],
+    ["Orchard Meadow", "test test", 37.782323, -122.182914],
+    ["Solidarity Lounge", "A safe place for students of all backgrounds to study and meet with other students. This is where MillsPedia was developed!", 37.78065, -122.18111]
+    ];
 
     //Marker setup
-    var marker = L.marker([37.780508, -122.183204]).addTo(map);
-    var marker1 = L.marker([37.779114, -122.18232]).addTo(map);
-    marker.bindPopup("<b>Welcome to mills!</b><br>Test popup.").openPopup();
-    marker1.bindPopup("<img class ='image' src='secrets/doggers.jpg'><br><b>This is the oval!</b><br><a href='https://quarterly.mills.edu/the-gregarious-ghosts-of-mills/'>Cute dogs were buried here</a>").openPopup();
-
+    for(const i of markers){
+        var marker = L.marker([i[2], i[3]]).addTo(map);
+        marker.bindPopup("<b>" + i[0] + "</b><br>" + i[1]).openPopup();
+        
+    }
     //Popup setup
     var popup = L.popup();
     function onMapClick(e) {
