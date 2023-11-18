@@ -8,8 +8,11 @@
             width: 100%; 
             height: 100vh; }
         .image{
-            width: 200px;
-        }
+            width: 250px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;     }
     </style>
 </head>
 
@@ -72,13 +75,10 @@
     ["Vera M. Long Building for the Social Sciences", "An academic building used for social sciences.", "This building used to be a health clinic.", 37.781639, -122.180711, "VL"]
 ];
 
-
-    var pictures = ['images/doggers.jpg', 'images/doggerts.png', 'images/doggerts.png', 'images/doggerts.png', 'secrets/doggerts.png'];
-
     //Marker setup
     for(const i of markers){
         var marker = L.marker([i[3], i[4]]).addTo(map);
-        marker.bindPopup("<img class ='image' src=" + pictures[markers.indexOf(i)] +"> <h2>" + i[0] + "</h2>" + i[1]+ "<br><br><b>Fun fact: </b>" + i[2] + "<br><br><a href=" + i[5] + ".html>Read more here!</a>").openPopup();
+        marker.bindPopup("<img class ='image' src=images/" + i[5] + ".jpg> <h2>" + i[0] + "</h2>" + i[1]+ "<br><br><b>Fun fact: </b>" + i[2] + "<br><br><a href=" + i[5] + ".html>Read more here!</a>").openPopup();
         
     }
 
