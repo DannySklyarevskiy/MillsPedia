@@ -12,7 +12,7 @@ var map = L.map('map').setView([37.780508, -122.183204
     var altText = 'Image of Newark, N.J. in 1922. Source: The University of Texas at Austin, UT Libraries Map Collection.';
     var latLngBounds = L.latLngBounds([[37.784131, -122.188051], [37.775506, -122.175466]]);
 
-    var imageOverlay = L.imageOverlay('/images/campus.png', latLngBounds, {
+    var imageOverlay = L.imageOverlay('static/images/campus.png', latLngBounds, {
     opacity: 1,
     errorOverlayUrl: errorOverlayUrl,
     alt: altText,
@@ -53,7 +53,7 @@ var map = L.map('map').setView([37.780508, -122.183204
     //Marker setup
     for(const i of markers){
         var marker = L.marker([i[3], i[4]]).addTo(map);
-        marker.bindPopup("<img class ='image' src=/images/" + i[5] + ".jpg> <h2>" + i[0] + "</h2>" + i[1]+ "<br><br><b>Fun fact: </b>" + i[2] + "<br><br><a href=" + i[5] + ".html>Read more here!</a>").openPopup();
+        marker.bindPopup("<img class ='image' src=static/images/" + i[5] + ".jpg> <h2>" + i[0] + "</h2>" + i[1]+ "<br><br><b>Fun fact: </b>" + i[2] + "<br><br><a href=" + i[5] + ".html>Read more here!</a>").openPopup();
         
     }
 
