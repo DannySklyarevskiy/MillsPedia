@@ -36,6 +36,7 @@ fetch("markers.tsv")
     })
     .then(() => {
         markers = csv_to_array(markerInfo).reverse();
+        console.log(markers);
         //Marker setup
         for (const i of markers) {
             let marker = L.marker([i[3], i[4]]).addTo(map);
