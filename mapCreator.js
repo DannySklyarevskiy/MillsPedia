@@ -40,7 +40,8 @@ fetch("markers.tsv")
         //Marker setup
         for (const i of markers) {
             let marker = L.marker([i[3], i[4]]).addTo(map);
-            const nickname = i[5];
+            let nickname = "";
+            nickname = i[5];
             marker.bindPopup(
                 "<img class ='image' src=static/images/" +
                     nickname +
