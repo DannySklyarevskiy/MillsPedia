@@ -35,16 +35,13 @@ fetch("markers.tsv")
         markerInfo += data;
     })
     .then(() => {
-        markers = csv_to_array(markerInfo).reverse();
-        console.log(markers);
+        markers = csv_to_array(markerInfo);
         //Marker setup
         for (const i of markers) {
-            let marker = L.marker([i[3], i[4]]).addTo(map);
-            let nickname = "";
-            nickname = i[5];
+            let marker = L.marker([i[3], i[4]], {alt: i[5]}).addTo(map);
             marker.bindPopup(
                 "<img class ='image' src=static/images/" +
-                    nickname +
+                    i[5] +
                     ".jpg> <h2>" +
                     i[0] +
                     "</h2>" +
@@ -52,9 +49,9 @@ fetch("markers.tsv")
                     "<br><br><b>Fun fact: </b>" +
                     i[2] +
                     "<br><br><a href=" +
-                    nickname +
+                    i[5] +
                     ".html>Read more here!</a>"
-            ).openPopup();
+            )
         }
     });
 
